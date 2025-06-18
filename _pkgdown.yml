@@ -1,8 +1,26 @@
 url: http://rladies.org/spellbind/
 template:
   bootstrap: 5
+  bootswatch: cosmo 
+  bslib:
+    primary: "#88398A" 
+    # secondary: "#6c757d" 
+    # info: "#17a2b8" 
+
+    base_font: ["Arial", "sans-serif"]
+    heading_font: ["Helvetica Neue", "sans-serif"] 
+    code_font: ["Fira Code", "monospace"]
 
 reference:
+- title: "Social Media functions"
+  desc: >
+    Functions to prepare send social media posts
+  contents:
+  - announce_post
+  - send_newsletter
+  - random_emoji
+  - create_message
+  - tags2hash
 - title: "LinkedIn functions"
   desc: >
     Utilities for connecting and posting to LinkedIn
@@ -11,8 +29,22 @@ reference:
 - title: "Misc. utilities"
   desc: "Helper functions"
   contents:
-  - random_emoji
-  - create_message
   - strlength
-  - tags2hash
   - short_url
+
+# --- Package Logo (if you have one) ---
+logo:
+  src: man/figures/logo.png 
+  alt: "spellbind Logo" 
+
+# --- Footer Configuration ---
+footer:
+  structure:
+    left: [links] 
+    right: [built_with] 
+  components:
+    links:
+      text: "Built for R-Ladies" 
+      href: https://rladies.org/ 
+    built_with: "Pkgdown powered by R-Ladies magic ✨"
+
