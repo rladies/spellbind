@@ -2,3 +2,17 @@ url: http://rladies.org/spellbind/
 template:
   bootstrap: 5
 
+reference:
+- title: "LinkedIn functions"
+  desc: >
+    Utilities for connecting and posting to LinkedIn
+  contents: 
+  - starts_with("li")
+- title: "Misc. utilities"
+  desc: "Helper functions"
+  contents:
+  - random_emoji
+  - create_message
+  - strlength
+  - tags2hash
+  - short_url

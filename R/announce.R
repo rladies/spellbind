@@ -77,11 +77,13 @@ announce_post <- function(post) {
     basename(dirname(dirname(post))),
     frontmatter$slug
   )
-  uri <- short_url(url)
 
   image <- here::here(dirname(post), frontmatter$image)
 
-  body <- create_message(frontmatter, uri)
+  body <- create_message(
+    frontmatter,
+    short_url(url)
+  )
 
   resp <- bskyr::bs_post(
     text = body,
