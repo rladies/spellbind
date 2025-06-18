@@ -1,0 +1,30 @@
+---
+title: "Social Media functions"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{social_media}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+
+# Shamelessly stolen and adapted from rOpenSci
+# https://github.com/ropensci-org/promoutils/blob/main/R/linkedin.R
+
+# And Jon Harmon's code for TinyTuesday sharing
+# https://github.com/rfordatascience/ttpost/blob/main/runner-li.R
+
+# To refresh the refresh the token, visit
+# https://www.linkedin.com/developers/tools/oauth/token-generator
+
+
+```{r setup}
+library(spellbind)
+```
