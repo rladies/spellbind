@@ -5,3 +5,6 @@
 ^\.github$
 ^[\.]?air\.toml$
 ^\.vscode$
+^_pkgdown\.yml$
+^docs$
+^pkgdown$
