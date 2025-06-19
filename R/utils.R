@@ -112,11 +112,8 @@ tags2hash <- function(tags) {
 #' a randomly selected emoji, a URL, and
 #' associated tags.
 #'
-#' @param text A character string providing
-#'     the main content to include in the
-#'     message body. The text should not exceed
-#'     a reasonable length for platform
-#'     constraints.
+#' @param frontmatter list from a yaml section
+#' @param uri url of the post
 #'
 #' @return A character string containing the
 #'   formatted message, which includes:
@@ -146,7 +143,7 @@ tags2hash <- function(tags) {
 #' frontmatter <- list(
 #'   title = "Learning R Programming"
 #' )
-#' emoji <- "🔥"
+#' emoji <- "\U0001F525"
 #' uri <- "https://example.com/a-blog-post"
 #' tags <- "#RStats #DataScience"
 #'
@@ -169,7 +166,7 @@ create_message <- function(
   
   {emoji} {frontmatter$description} 
   
-  👀 {uri} 
+  \U0001F440 {uri} 
   
   {tags}"
   )
@@ -197,108 +194,49 @@ create_message <- function(
 #' # Generate a random emoji
 #' random_emoji()
 #'
-#' # Assign a random emoji to a variable
-#' my_emoji <- random_emoji()
-#' my_emoji
-#'
 #' @export
 random_emoji <- function() {
   emojis <- c(
-    "🦄",
-    "🦜",
-    "🦣",
-    "🦥",
-    "🦦",
-    "🦧",
-    "🦨",
-    "🦩",
-    "🦪",
-    "🦫",
-    "🦬",
-    "🦭",
-    "🦮",
-    "🦯",
-    "🦰",
-    "🦱",
-    "🦲",
-    "🦳",
-    "🦴",
-    "🦵",
-    "🦶",
-    "🦷",
-    "🦸",
-    "🦹",
-    "🦺",
-    "🦻",
-    "🦼",
-    "🦽",
-    "🦾",
-    "🦿",
-    "🧀",
-    "🧁",
-    "🧂",
-    "🧃",
-    "🧄",
-    "🧅",
-    "🧆",
-    "🧇",
-    "🧈",
-    "🧉",
-    "🧊",
-    "🧋",
-    "🧌",
-    "🧍",
-    "🧎",
-    "🧏",
-    "🧐",
-    "🧑",
-    "🧒",
-    "🧓",
-    "🧔",
-    "🧕",
-    "🧖",
-    "🧗",
-    "🧘",
-    "🧙",
-    "🧚",
-    "🧛",
-    "🧜",
-    "🧝",
-    "🧞",
-    "🧟",
-    "🧠",
-    "🧡",
-    "🧢",
-    "🧣",
-    "🧤",
-    "🧥",
-    "🧦",
-    "🧧",
-    "🧨",
-    "🧩",
-    "🧪",
-    "🧫",
-    "🧬",
-    "🧭",
-    "🧮",
-    "🧯",
-    "🧰",
-    "🧱",
-    "🧲",
-    "🧳",
-    "🧴",
-    "🧵",
-    "🧶",
-    "🧷",
-    "🧸",
-    "🧹",
-    "🧺",
-    "🧻",
-    "🧼",
-    "🧽",
-    "🧾",
-    "🧿"
+    "\U1F4DD",
+    "\U1F30D",
+    "\U1F680",
+    "\U1F4A1",
+    "\U1F527",
+    "\U1F31F",
+    "\U1F914",
+    "\U1F4F0",
+    "\U1F4AD",
+    "\U1F50D",
+    "\U1F4C4",
+    "\U1F4DA",
+    "\U1F3AF",
+    "\U1F9D0",
+    "\U1F4BB",
+    "\U1F4E2",
+    "\U1F4B9",
+    "\U1F4D1",
+    "\U1F9ED",
+    "\U1F9E0",
+    "\U1F4BD",
+    "\U1F4CA",
+    "\U1F4F1",
+    "\U1F389",
+    "\U1F50A",
+    "\U1F4D6",
+    "\U1F5E8",
+    "\U1F4FC",
+    "\U1F9E9",
+    "\U1F4BC",
+    "\U1F575",
+    "\U1F4AF",
+    "\U1F4CC",
+    "\U1F5C2",
+    "\U1F5CE",
+    "\U1F6C8",
+    "\U1F9F0",
+    "\U1F3AC",
+    "\U1F92F",
+    "\U1F4AE"
   )
-
   sample(emojis, 1)
 }

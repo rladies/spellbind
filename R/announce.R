@@ -55,7 +55,7 @@
 #' post <- "blog/post/2023-10-05-my-blog-post/index.md"
 #' announce_post(post)
 #' }
-announce_post <- function(post) {
+cast_announce_post <- function(post) {
   # Check if arguments are provided
   if (is.null(post)) {
     cli::cli_abort(

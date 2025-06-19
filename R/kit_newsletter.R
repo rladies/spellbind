@@ -56,7 +56,7 @@
 #'   req_perform
 #'
 #' @export
-send_newsletter <- function(frontmatter, url) {
+cast_send_newsletter <- function(frontmatter, url) {
   newsletter <- glue::glue(
     "add html template here"
   )

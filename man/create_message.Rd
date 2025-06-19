@@ -7,11 +7,9 @@
 create_message(frontmatter, uri)
 }
 \arguments{
-\item{text}{A character string providing
-the main content to include in the
-message body. The text should not exceed
-a reasonable length for platform
-constraints.}
+\item{frontmatter}{list from a yaml section}
+
+\item{uri}{url of the post}
 }
 \value{
 A character string containing the
@@ -50,7 +48,7 @@ when this function is called.
 frontmatter <- list(
   title = "Learning R Programming"
 )
-emoji <- "🔥"
+emoji <- "\U0001F525"
 uri <- "https://example.com/a-blog-post"
 tags <- "#RStats #DataScience"
 

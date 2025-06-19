@@ -28,8 +28,4 @@ parameters are required.
 # Generate a random emoji
 random_emoji()
 
-# Assign a random emoji to a variable
-my_emoji <- random_emoji()
-my_emoji
-
 }

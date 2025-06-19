@@ -1,7 +1,7 @@
 ^spellbind\.Rproj$
 ^\.Rproj\.user$
 ^LICENSE\.md$
-^README\.Rmd$
+^README\.qmd$
 ^\.github$
 ^[\.]?air\.toml$
 ^\.vscode$
