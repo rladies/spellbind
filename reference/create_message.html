@@ -62,12 +62,12 @@ associated tags.</p>
     <h2 id="arguments">Arguments<a class="anchor" aria-label="anchor" href="#arguments"></a></h2>
 
 
-<dl><dt id="arg-text">text<a class="anchor" aria-label="anchor" href="#arg-text"></a></dt>
-<dd><p>A character string providing
-the main content to include in the
-message body. The text should not exceed
-a reasonable length for platform
-constraints.</p></dd>
+<dl><dt id="arg-frontmatter">frontmatter<a class="anchor" aria-label="anchor" href="#arg-frontmatter"></a></dt>
+<dd><p>list from a yaml section</p></dd>
+
+
+<dt id="arg-uri">uri<a class="anchor" aria-label="anchor" href="#arg-uri"></a></dt>
+<dd><p>url of the post</p></dd>
 
 </dl></div>
     <div class="section level2">
@@ -111,7 +111,7 @@ when this function is called.</p>
 <span class="r-in"><span><span class="va">frontmatter</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span></span>
 <span class="r-in"><span>  title <span class="op">=</span> <span class="st">"Learning R Programming"</span></span></span>
 <span class="r-in"><span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="va">emoji</span> <span class="op">&lt;-</span> <span class="st">"🔥"</span></span></span>
+<span class="r-in"><span><span class="va">emoji</span> <span class="op">&lt;-</span> <span class="st">"\U0001F525"</span></span></span>
 <span class="r-in"><span><span class="va">uri</span> <span class="op">&lt;-</span> <span class="st">"https://example.com/a-blog-post"</span></span></span>
 <span class="r-in"><span><span class="va">tags</span> <span class="op">&lt;-</span> <span class="st">"#RStats #DataScience"</span></span></span>
 <span class="r-in"><span></span></span>
