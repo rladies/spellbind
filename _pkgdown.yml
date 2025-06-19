@@ -16,8 +16,8 @@ reference:
   desc: >
     Functions to prepare send social media posts
   contents:
-  - announce_post
-  - send_newsletter
+  - cast_announce_post
+  - cast_send_newsletter
   - random_emoji
   - create_message
   - tags2hash
