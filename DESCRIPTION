@@ -1,13 +1,16 @@
 Package: spellbind
 Title: Internal R-Ladies Global Helper Package
 Version: 0.0.0.9000
-Authors@R: 
+Authors@R: c(
     person(
-        given = "Athanasia Mo", 
+        given = "Athanasia Mo",
         family = "Mowinckel",
-        email = "a.m.mowinckel@psykologi.uio.no", 
+        email = "a.m.mowinckel@psykologi.uio.no",
         role = c("aut", "cre"),
         comment = c(ORCID = "0000-0002-5756-0223")
+    ),
+    person("R-Ladies Global", role = "cph",
+           comment = c(ROR = "https://ror.org/05wpb1k41"))
     )
 Description: Currently includes functions to post to social media accounts.
 License: CC BY 4.0
