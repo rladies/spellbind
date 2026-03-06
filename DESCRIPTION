@@ -30,3 +30,4 @@ Suggests:
     lintr
 VignetteBuilder: knitr
 URL: http://rladies.org/spellbind/
+Config/Needs/website: rladies/rladiesdocs
