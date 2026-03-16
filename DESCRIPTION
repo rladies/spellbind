@@ -34,5 +34,5 @@ Suggests:
 VignetteBuilder: knitr
 Config/testthat/edition: 3
 Config/Needs/website: rladies/cloak
-URL: https://rladies.org/spellbind/, https://github.com/rladies/spellbind
+URL: https://rladies.org/spellbind/, https://github.com/rladies/spellbind, http://rladies.org/spellbind/
 BugReports: https://github.com/rladies/spellbind/issues
