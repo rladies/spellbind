@@ -6,9 +6,9 @@ rladies_colours <- list(
   purple_dark   = "#6b0fd4",
   purple_darker = "#5009a8",
   blue          = "#146af9",
-  blue_75       = "#4f8ffb",
-  blue_50       = "#8ab5fc",
-  blue_25       = "#c4dafe",
+  blue_75       = "#4a8bf8",
+  blue_50       = "#80acf6",
+  blue_25       = "#b7ccf5",
   rose          = "#ff5b92",
   rose_75       = "#fb80ab",
   rose_50       = "#f6a4c3",
@@ -44,6 +44,13 @@ rladies_cols <- function(...) {
   unlist(rladies_colours[cols])
 }
 
+mix_hex <- function(colour, base, amount) {
+  col_rgb <- grDevices::col2rgb(colour)[, 1]
+  base_rgb <- grDevices::col2rgb(base)[, 1]
+  mixed <- round(col_rgb * amount + base_rgb * (1 - amount))
+  grDevices::rgb(mixed[1], mixed[2], mixed[3], maxColorValue = 255)
+}
+
 rladies_palettes <- list(
   main     = unname(unlist(rladies_colours[c("purple", "blue", "rose")])),
   full     = unname(unlist(rladies_colours[c(
@@ -63,13 +70,21 @@ rladies_palettes <- list(
     "charcoal", "charcoal_75", "charcoal_50", "charcoal_25", "lavender"
   )])),
   diverging = unname(unlist(rladies_colours[c(
-    "purple_dark", "purple", "purple_lighter", "lavender",
-    "rose_25", "rose", "rose"
+    "purple_dark", "purple", "purple_50", "lavender",
+    "rose_50", "rose", "rose_75"
   )])),
   light    = unname(unlist(rladies_colours[c(
-    "purple_lighter", "blue_25", "rose_25",
-    "purple_50", "blue_50", "rose_50"
-  )]))
+    "purple_50", "blue_50", "rose_50",
+    "purple_lighter", "blue_25", "rose_25"
+  )])),
+  dark     = unname(c(
+    rladies_colours[["purple_darker"]],
+    mix_hex(rladies_colours[["blue"]],   rladies_colours[["charcoal"]], 0.75),
+    mix_hex(rladies_colours[["rose"]],   rladies_colours[["charcoal"]], 0.75),
+    rladies_colours[["purple_dark"]],
+    mix_hex(rladies_colours[["blue"]],   rladies_colours[["charcoal"]], 0.5),
+    mix_hex(rladies_colours[["rose"]],   rladies_colours[["charcoal"]], 0.5)
+  ))
 )
 
 #' RLadies+ colour palettes
@@ -77,7 +92,7 @@ rladies_palettes <- list(
 #' Returns a colour palette function or vector from the RLadies+ brand.
 #'
 #' @param palette Name of the palette. One of `"main"`, `"full"`, `"purple"`,
-#'   `"blue"`, `"rose"`, `"neutral"`, `"diverging"`, or `"light"`.
+#'   `"blue"`, `"rose"`, `"neutral"`, `"diverging"`, `"light"`, or `"dark"`.
 #' @param reverse Logical. Reverse the palette order?
 #' @param ... Additional arguments passed to [grDevices::colorRampPalette()].
 #'
@@ -96,6 +111,42 @@ rladies_pal <- function(palette = "main", reverse = FALSE, ...) {
   }
   if (reverse) pal <- rev(pal)
   grDevices::colorRampPalette(pal, ...)
+}
+
+#' Tint or shade an RLadies+ brand colour
+#'
+#' Mix a brand colour with lavender (tint) or charcoal (shade), following
+#' the RLadies+ brand guidelines. This is the same approach used in the
+#' brand SCSS — all tints mix towards lavender white, all shades mix
+#' towards Bastille Black.
+#'
+#' @param colour A colour name from the brand palette (e.g. `"purple"`,
+#'   `"blue"`, `"rose"`) or any hex colour string.
+#' @param amount Numeric between 0 and 1. The proportion of the original
+#'   colour to keep. `amount = 0.75` gives a 75% tint (mostly colour,
+#'   lightly mixed with lavender/charcoal).
+#' @param mode Either `"tint"` (mix towards lavender) or
+#'   `"shade"` (mix towards charcoal).
+#'
+#' @return A hex colour string.
+#'
+#' @examples
+#' rladies_mix("purple", 0.75)
+#' rladies_mix("purple", 0.50, mode = "shade")
+#'
+#' scales::show_col(vapply(
+#'   c(0.25, 0.50, 0.75, 1),
+#'   function(x) rladies_mix("blue", x),
+#'   character(1)
+#' ))
+#' @export
+rladies_mix <- function(colour, amount = 0.5, mode = c("tint", "shade")) {
+  mode <- match.arg(mode)
+  if (colour %in% names(rladies_colours)) {
+    colour <- rladies_colours[[colour]]
+  }
+  base <- if (mode == "tint") rladies_colours[["lavender"]] else rladies_colours[["charcoal"]]
+  mix_hex(colour, base, amount)
 }
 
 cli_abort <- function(...) stop(..., call. = FALSE)

@@ -2,6 +2,7 @@
 
 export(rladies_cols)
 export(rladies_html)
+export(rladies_mix)
 export(rladies_pal)
 export(rladies_pdf)
 export(scale_color_rladies)

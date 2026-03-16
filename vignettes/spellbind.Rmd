@@ -75,7 +75,7 @@ ggplot(faithfuld, aes(waiting, eruptions, fill = density)) +
 
 ### Available palettes
 
-Eight palettes ship with the package.
+Nine palettes ship with the package.
 Each serves a different purpose:
 
 | Palette | Colours | Use case |
@@ -87,7 +87,32 @@ Each serves a different purpose:
 | `rose` | Four rose tints | Sequential or continuous rose data |
 | `neutral` | Charcoal to lavender | Muted backgrounds or secondary data |
 | `diverging` | Purple through lavender to rose | Data with a meaningful midpoint |
-| `light` | Pastel tints | Fills that need to sit behind text |
+| `light` | Pastel tints (25% mixed with lavender) | Fills behind text on light backgrounds |
+| `dark` | Shaded tints (75% mixed with charcoal) | Categorical data on dark backgrounds |
+
+```{r}
+#| label: show-palettes
+#| fig-alt: "Colour swatches for all eight RLadies+ palettes"
+#| fig-cap: "All available palettes at a glance."
+#| fig.height: 6
+#| fig.width: 7
+palette_names <- c(
+  "main", "full", "purple", "blue",
+  "rose", "neutral", "diverging", "light", "dark"
+)
+n <- 8
+max_label <- max(strwidth(palette_names, units = "inches", cex = 0.9)) * 1.2
+par(mar = c(0.5, max_label * 5 + 1, 0.5, 0.5))
+plot(NULL, xlim = c(0, n), ylim = c(0, length(palette_names)),
+     axes = FALSE, xlab = "", ylab = "")
+for (i in seq_along(palette_names)) {
+  nm <- palette_names[i]
+  cols <- rladies_pal(nm)(n)
+  y <- length(palette_names) - i
+  rect(seq(0, n - 1), y + 0.1, seq(1, n), y + 0.9, col = cols, border = NA)
+  mtext(nm, side = 2, at = y + 0.5, las = 1, cex = 0.9, font = 2, line = 0.5)
+}
+```
 
 `rladies_pal()` returns a function, which is what ggplot2 needs under the hood.
 You can also use it directly if you need a specific number of interpolated colours:
@@ -95,6 +120,28 @@ You can also use it directly if you need a specific number of interpolated colou
 ```{r}
 #| label: palette-function
 rladies_pal("diverging")(7)
+```
+
+### Custom tints and shades
+
+All brand tints are created by mixing a colour with lavender (for tints) or charcoal (for shades) — the same approach as the RLadies+ SCSS.
+`rladies_mix()` lets you generate any ratio:
+
+```{r}
+#| label: show-mix
+#| fig-alt: "Purple tints and shades at 25% intervals, mixed with lavender and charcoal"
+#| fig-cap: "Tints (left) and shades (right) of purple at 25% steps."
+#| fig.height: 2
+#| fig.width: 7
+amounts <- seq(0.25, 1, by = 0.25)
+tints <- vapply(amounts, function(x) rladies_mix("purple", x, "tint"), character(1))
+shades <- vapply(amounts, function(x) rladies_mix("purple", x, "shade"), character(1))
+cols <- c(rev(tints), shades)
+par(mar = c(2, 0.5, 0.5, 0.5))
+barplot(rep(1, length(cols)), col = cols, border = NA, axes = FALSE,
+        names.arg = c(paste0(rev(amounts) * 100, "% tint"),
+                      paste0(amounts * 100, "% shade")),
+        las = 2, cex.names = 0.7)
 ```
 
 ## The theme
