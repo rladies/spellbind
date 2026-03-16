@@ -1,0 +1,38 @@
+Package: spellbind
+Title: RLadies+ Brand Toolkit for R
+Version: 0.1.0
+Authors@R: c(
+    person(
+        given = "Athanasia Mo",
+        family = "Mowinckel",
+        email = "a.m.mowinckel@psykologi.uio.no",
+        role = c("aut", "cre"),
+        comment = c(ORCID = "0000-0002-5756-0223")
+    ),
+    person("R-Ladies Global", role = "cph",
+           comment = c(ROR = "https://ror.org/05wpb1k41"))
+    )
+Description: Colour palettes, ggplot2 themes, and colour scales for the
+    RLadies+ visual identity. Provides a consistent branded look for data
+    visualisations, reports, and presentations created by R-Ladies chapters
+    worldwide.
+License: CC BY 4.0
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.3
+Depends: R (>= 4.1.0)
+Imports:
+    ggplot2 (>= 3.5.0),
+    grDevices,
+    rmarkdown
+Suggests:
+    knitr,
+    scales,
+    testthat (>= 3.0.0),
+    vdiffr,
+    xaringan
+VignetteBuilder: knitr
+Config/testthat/edition: 3
+Config/Needs/website: rladies/cloak
+URL: https://rladies.org/spellbind/, https://github.com/rladies/spellbind
+BugReports: https://github.com/rladies/spellbind/issues

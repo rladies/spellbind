@@ -1,0 +1,37 @@
+---
+title: "Your Title"
+subtitle: "Your Subtitle"
+author: "Your Name"
+date: "`r Sys.Date()`"
+output:
+  spellbind::rladies_html:
+    toc: true
+    toc_float: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(ggplot2)
+library(spellbind)
+```
+
+## Introduction
+
+Start writing your document here.
+
+## Plot Example
+
+```{r plot-example}
+ggplot(mtcars, aes(wt, mpg)) +
+  geom_point(colour = rladies_cols("purple"), size = 3) +
+  labs(
+    title = "Weight vs Fuel Efficiency",
+    x = "Weight (1000 lbs)",
+    y = "Miles per Gallon"
+  ) +
+  theme_rladies()
+```
+
+## Summary
+
+Your summary here.

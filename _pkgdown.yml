@@ -1,0 +1,32 @@
+url: https://rladies.org/spellbind/
+template:
+  package: cloak
+  bootstrap: 5
+
+reference:
+- title: "Colours"
+  desc: Access the RLadies+ brand palette
+  contents:
+  - rladies_cols
+  - rladies_pal
+- title: "ggplot2 Theme"
+  desc: Branded ggplot2 theme with light and dark modes
+  contents:
+  - theme_rladies
+- title: "ggplot2 Scales"
+  desc: Discrete and continuous colour/fill scales
+  contents:
+  - starts_with("scale_")
+- title: "R Markdown Formats"
+  desc: Branded output formats for R Markdown documents
+  contents:
+  - rladies_formats
+
+footer:
+  structure:
+    left: [links]
+    right: [built_with]
+  components:
+    links:
+      text: "Built for R-Ladies"
+      href: https://rladies.org/

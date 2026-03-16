@@ -1,0 +1,56 @@
+---
+title: "Your Title"
+subtitle: "A chapter presentation"
+author: "Your Name"
+date: "`r Sys.Date()`"
+output:
+  xaringan::moon_reader:
+    css: ["default", "rladies-plus.css", "rladies-plus-fonts.css"]
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      ratio: "16:9"
+---
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+library(ggplot2)
+library(spellbind)
+```
+
+class: inverse, center, middle
+
+# Welcome to RLadies+
+
+---
+
+## Getting Started
+
+- Point one
+- Point two
+- Point three
+
+---
+
+## Plot Example
+
+```{r plot-example, fig.width=10, fig.height=5, dpi=150}
+ggplot(mtcars, aes(wt, mpg)) +
+  geom_point(colour = rladies_cols("purple"), size = 3) +
+  labs(
+    title = "Weight vs Fuel Efficiency",
+    x = "Weight (1000 lbs)",
+    y = "Miles per Gallon"
+  ) +
+  theme_rladies()
+```
+
+---
+
+class: inverse, center, middle
+
+# Thank you!
+
+[rladies.org](https://rladies.org)

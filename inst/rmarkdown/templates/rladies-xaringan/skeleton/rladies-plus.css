@@ -1,0 +1,213 @@
+:root {
+  --rladies-purple: #881ef9;
+  --rladies-purple-light: #a152f8;
+  --rladies-purple-lighter: #d4b9f5;
+  --rladies-blue: #146af9;
+  --rladies-rose: #ff5b92;
+  --rladies-charcoal: #2f2f30;
+  --rladies-lavender: #ededf4;
+  --rladies-surface: #f8f8fc;
+}
+
+body {
+  color: var(--rladies-charcoal);
+}
+
+h1, h2, h3 {
+  color: var(--rladies-purple);
+  font-weight: 600;
+}
+
+a, a:hover {
+  color: var(--rladies-purple);
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+.remark-slide-content {
+  background-color: var(--rladies-lavender);
+  padding: 1em 2em;
+}
+
+.remark-slide-content h1 {
+  font-size: 2em;
+  font-weight: 500;
+}
+
+.remark-slide-content h2 {
+  font-size: 1.4em;
+  font-weight: 600;
+  border-bottom: 3px solid var(--rladies-purple);
+  padding-bottom: 0.3em;
+  margin-bottom: 0.8em;
+}
+
+.remark-slide-content h3 {
+  font-size: 1.1em;
+  color: var(--rladies-blue);
+}
+
+.inverse {
+  background-color: var(--rladies-purple);
+  color: var(--rladies-lavender);
+}
+
+.inverse h1, .inverse h2, .inverse h3 {
+  color: var(--rladies-lavender);
+}
+
+.inverse a {
+  color: var(--rladies-purple-lighter);
+}
+
+.title-slide {
+  background:
+    radial-gradient(circle 40px at 0 28%,
+      var(--rladies-lavender) 99%, transparent 100%),
+    linear-gradient(var(--rladies-purple), var(--rladies-purple))
+      no-repeat 2px 28% / calc(100% - 2px) 4px,
+    radial-gradient(circle 70px at 0 100%,
+      var(--rladies-purple) 99%, transparent 100%),
+    linear-gradient(var(--rladies-surface), var(--rladies-surface))
+      no-repeat 0 0 / 100% 28%;
+  background-color: var(--rladies-lavender);
+  text-align: left;
+  padding: 32% 2em 1em 4%;
+  position: relative;
+}
+
+.title-slide::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 32%;
+  height: 14%;
+  background: var(--rladies-purple);
+  border-radius: 0 0 0 1.2rem;
+}
+
+.title-slide::after {
+  content: '';
+  position: absolute;
+  top: 34%;
+  left: 0;
+  width: 6px;
+  height: 52%;
+  background: var(--rladies-purple);
+  border-radius: 3px;
+}
+
+.title-slide h1,
+.title-slide h2,
+.title-slide h3 {
+  text-shadow: none;
+  text-align: left;
+}
+
+.title-slide h1 {
+  color: var(--rladies-purple);
+  font-size: 2.4em;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  margin-bottom: 0.15em;
+}
+
+.title-slide h2 {
+  color: var(--rladies-charcoal);
+  font-size: 1.1em;
+  font-weight: 400;
+  border-bottom: none;
+  margin-bottom: 1.5em;
+}
+
+.title-slide h3 {
+  color: var(--rladies-charcoal);
+  font-weight: 400;
+  font-size: 0.9em;
+}
+
+.title-slide.dark {
+  background:
+    radial-gradient(circle 40px at 0 28%,
+      var(--rladies-charcoal) 99%, transparent 100%),
+    linear-gradient(rgba(136, 30, 249, 0.5), rgba(136, 30, 249, 0.5))
+      no-repeat 2px 28% / calc(100% - 2px) 4px,
+    radial-gradient(circle 70px at 0 100%,
+      rgba(136, 30, 249, 0.12) 99%, transparent 100%),
+    linear-gradient(rgba(237, 237, 244, 0.04), rgba(237, 237, 244, 0.04))
+      no-repeat 0 0 / 100% 28%;
+  background-color: var(--rladies-charcoal);
+}
+
+.title-slide.dark::before {
+  background: var(--rladies-purple);
+}
+
+.title-slide.dark::after {
+  background: rgba(136, 30, 249, 0.6);
+}
+
+.title-slide.dark h1 {
+  color: var(--rladies-lavender);
+}
+
+.title-slide.dark h2,
+.title-slide.dark h3 {
+  color: var(--rladies-lavender);
+}
+
+blockquote {
+  border-left: 4px solid var(--rladies-purple);
+  background: rgba(136, 30, 249, 0.06);
+  border-radius: 0 0.75rem 0.75rem 0;
+  padding: 1rem 1.5rem;
+  margin: 1rem 0;
+}
+
+code {
+  background: rgba(136, 30, 249, 0.08);
+  border-radius: 0.25rem;
+  padding: 0.1em 0.35em;
+}
+
+pre code {
+  background: none;
+  padding: 0;
+}
+
+.remark-code-line-highlighted {
+  background-color: rgba(136, 30, 249, 0.1);
+}
+
+.pull-left h3, .pull-right h3 {
+  color: var(--rladies-blue);
+}
+
+.footnote {
+  color: var(--rladies-charcoal);
+  opacity: 0.7;
+  font-size: 0.8em;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th {
+  background: var(--rladies-purple);
+  color: var(--rladies-lavender);
+  font-weight: 600;
+  padding: 0.5em 0.8em;
+}
+
+td {
+  padding: 0.4em 0.8em;
+  border-bottom: 1px solid var(--rladies-lavender);
+}
+
+tr:hover td {
+  background: rgba(136, 30, 249, 0.04);
+}

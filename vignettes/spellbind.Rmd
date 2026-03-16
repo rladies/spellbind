@@ -1,0 +1,173 @@
+---
+title: "Getting started with spellbind"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Getting started with spellbind}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r}
+#| label: setup
+#| include: false
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.width = 7,
+  fig.height = 4.5,
+  dpi = 150
+)
+```
+
+Every R-Ladies chapter makes plots.
+Meetup announcements, workshop slides, blog posts, annual reports — there is always a chart that needs to look like it belongs.
+spellbind gives you the RLadies+ colour palette, ggplot2 theme, and colour scales so that everything you produce is on-brand without thinking about hex codes.
+
+## The palette
+
+The brand has three primary colours — purple, blue, and rose — plus a set of neutrals and tints.
+`rladies_cols()` is the front door:
+
+```{r}
+#| label: colours
+library(spellbind)
+
+rladies_cols("purple", "blue", "rose")
+```
+
+Call it with no arguments to see everything:
+
+```{r}
+#| label: all-colours
+rladies_cols()
+```
+
+## Colour scales for ggplot2
+
+The scales drop straight into your ggplot2 code.
+`scale_colour_rladies()` and `scale_fill_rladies()` handle discrete data; the `_c` variants handle continuous.
+
+```{r}
+#| label: discrete-scatter
+#| fig-alt: "Scatter plot of iris sepal dimensions coloured by species using the RLadies+ main palette"
+#| fig-cap: "Discrete colour scale applied to species."
+library(ggplot2)
+
+ggplot(iris, aes(Sepal.Length, Sepal.Width, colour = Species)) +
+  geom_point(size = 2.5) +
+  scale_colour_rladies() +
+  theme_rladies() +
+  labs(title = "Iris sepal dimensions")
+```
+
+For continuous data, pick a single-hue palette like `"purple"` or `"blue"`:
+
+```{r}
+#| label: continuous-fill
+#| fig-alt: "Tile plot of Old Faithful eruption data with a purple continuous fill gradient"
+#| fig-cap: "Continuous fill scale using the purple palette."
+ggplot(faithfuld, aes(waiting, eruptions, fill = density)) +
+  geom_tile() +
+  scale_fill_rladies_c("purple") +
+  theme_rladies() +
+  labs(title = "Old Faithful eruptions")
+```
+
+### Available palettes
+
+Eight palettes ship with the package.
+Each serves a different purpose:
+
+| Palette | Colours | Use case |
+|:--------|:--------|:---------|
+| `main` | purple, blue, rose | Default for categorical data with few groups |
+| `full` | Six brand colours | More groups, still categorical |
+| `purple` | Six purple tints | Sequential or continuous purple data |
+| `blue` | Four blue tints | Sequential or continuous blue data |
+| `rose` | Four rose tints | Sequential or continuous rose data |
+| `neutral` | Charcoal to lavender | Muted backgrounds or secondary data |
+| `diverging` | Purple through lavender to rose | Data with a meaningful midpoint |
+| `light` | Pastel tints | Fills that need to sit behind text |
+
+`rladies_pal()` returns a function, which is what ggplot2 needs under the hood.
+You can also use it directly if you need a specific number of interpolated colours:
+
+```{r}
+#| label: palette-function
+rladies_pal("diverging")(7)
+```
+
+## The theme
+
+`theme_rladies()` is a minimal ggplot2 theme built on `theme_minimal()`.
+It uses the brand's Bastille Black for text and the purple for titles and strip labels.
+Backgrounds are transparent, so plots drop cleanly into slides, documents, and dashboards without white rectangles fighting the page colour.
+
+```{r}
+#| label: theme-light
+#| fig-alt: "Bar chart of diamond cuts with the light mode RLadies+ theme"
+#| fig-cap: "The default light theme."
+ggplot(diamonds, aes(cut, fill = cut)) +
+  geom_bar(show.legend = FALSE) +
+  scale_fill_rladies("full") +
+  theme_rladies() +
+  labs(title = "Diamond cuts")
+```
+
+For dark slides or coloured backgrounds, switch to dark mode:
+
+```{r}
+#| label: theme-dark
+#| fig-alt: "Scatter plot with the dark mode RLadies+ theme on a dark background"
+#| fig-cap: "Dark mode for coloured or dark slide backgrounds."
+ggplot(mtcars, aes(wt, mpg)) +
+  geom_point(colour = rladies_cols("purple_50"), size = 3) +
+  theme_rladies(mode = "dark") +
+  labs(title = "Dark mode")
+```
+
+Gridlines are on by default.
+Turn them off with `grid = FALSE` when the data speaks for itself.
+
+## R Markdown templates
+
+spellbind ships three R Markdown templates you can access from RStudio's _File > New File > R Markdown > From Template_ menu:
+
+- **RLadies+ HTML** — a branded html_document with the brand CSS, Poppins font, and purple accents.
+- **RLadies+ PDF** — a branded pdf_document with matching LaTeX headers.
+- **RLadies+ Xaringan** — presentation slides with brand colours and typography.
+
+The HTML and PDF formats are also available as output functions:
+
+```yaml
+output: spellbind::rladies_html
+```
+
+```yaml
+output: spellbind::rladies_pdf
+```
+
+These handle the CSS and LaTeX includes for you — just write your content.
+
+## Putting it together
+
+A typical chapter meetup workflow looks something like this:
+
+```{r}
+#| label: full-example
+#| fig-alt: "Scatter plot of car weight versus fuel efficiency coloured by number of cylinders using the RLadies+ full palette"
+#| fig-cap: "A complete example combining theme, scales, and brand colours."
+ggplot(mtcars, aes(wt, mpg, colour = factor(cyl))) +
+  geom_point(size = 3) +
+  scale_colour_rladies("main") +
+  theme_rladies() +
+  labs(
+    title = "Weight vs fuel efficiency",
+    x = "Weight (1000 lbs)",
+    y = "Miles per gallon",
+    colour = "Cylinders"
+  )
+```
+
+The palette, theme, and scales all pull from the same colour definitions.
+Change nothing, and your plots look like they belong together.
