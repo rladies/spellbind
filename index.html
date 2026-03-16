@@ -22,6 +22,23 @@
 <meta property="og:description" content="Colour palettes, ggplot2 themes, and colour scales for the RLadies+ visual identity. Provides a consistent branded look for data visualisations, reports, and presentations created by R-Ladies chapters worldwide.">
 <meta property="og:image" content="https://rladies.org/spellbind/logo.svg">
 <link rel="icon" href="favicon-purple.svg" type="image/svg+xml">
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  var brand = document.querySelector(".navbar-brand");
+  if (brand) {
+    var light = document.createElement("img");
+    light.src = "rladies-submark.svg";
+    light.alt = "R-Ladies";
+    light.className = "rladies-logo rladies-logo-light";
+    var dark = document.createElement("img");
+    dark.src = "rladies-submark-white.svg";
+    dark.alt = "R-Ladies";
+    dark.className = "rladies-logo rladies-logo-dark";
+    brand.prepend(dark);
+    brand.prepend(light);
+  }
+});
+</script>
 </head>
 <body>
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>

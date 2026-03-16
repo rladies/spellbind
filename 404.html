@@ -20,6 +20,23 @@
 <script src="https://rladies.org/spellbind/deps/headroom-0.11.0/headroom.min.js"></script><script src="https://rladies.org/spellbind/deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="https://rladies.org/spellbind/deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="https://rladies.org/spellbind/deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="https://rladies.org/spellbind/deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="https://rladies.org/spellbind/deps/search-1.0.0/fuse.min.js"></script><script src="https://rladies.org/spellbind/deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="https://rladies.org/spellbind/pkgdown.js"></script><meta property="og:title" content="Page not found (404)">
 <meta property="og:image" content="https://rladies.org/spellbind/logo.svg">
 <link rel="icon" href="https://rladies.org/spellbind/favicon-purple.svg" type="image/svg+xml">
+<script src="https://rladies.org/spellbind/NA">
+document.addEventListener("DOMContentLoaded", function() {
+  var brand = document.querySelector(".navbar-brand");
+  if (brand) {
+    var light = document.createElement("img");
+    light.src = "rladies-submark.svg";
+    light.alt = "R-Ladies";
+    light.className = "rladies-logo rladies-logo-light";
+    var dark = document.createElement("img");
+    dark.src = "rladies-submark-white.svg";
+    dark.alt = "R-Ladies";
+    dark.className = "rladies-logo rladies-logo-dark";
+    brand.prepend(dark);
+    brand.prepend(light);
+  }
+});
+</script>
 </head>
 <body>
     <a href="https://rladies.org/spellbind/#main" class="visually-hidden-focusable">Skip to contents</a>
