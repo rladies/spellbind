@@ -9,12 +9,12 @@ Authors@R: c(
         role = c("aut", "cre"),
         comment = c(ORCID = "0000-0002-5756-0223")
     ),
-    person("R-Ladies Global", role = "cph",
+    person("RLadies+", role = "cph",
            comment = c(ROR = "https://ror.org/05wpb1k41"))
     )
 Description: Colour palettes, ggplot2 themes, and colour scales for the
     RLadies+ visual identity. Provides a consistent branded look for data
-    visualisations, reports, and presentations created by R-Ladies chapters
+    visualisations, reports, and presentations created by RLadies+ chapters
     worldwide.
 License: CC BY 4.0
 Encoding: UTF-8
