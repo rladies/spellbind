@@ -10,12 +10,14 @@ together.
 Install from the [RLadies r-universe](https://rladies.r-universe.dev/):
 
 ``` r
+
 install.packages("spellbind", repos = "https://rladies.r-universe.dev")
 ```
 
 Or the development version from GitHub:
 
 ``` r
+
 # install.packages("pak")
 pak::pak("rladies/spellbind")
 ```
@@ -26,6 +28,7 @@ The brand palette has three primary colours — purple, blue, and rose —
 plus neutrals and tints for each.
 
 ``` r
+
 library(spellbind)
 rladies_cols("purple", "blue", "rose")
 #>    purple      blue      rose 
@@ -42,6 +45,7 @@ and
 to give plots a consistent branded look.
 
 ``` r
+
 library(ggplot2)
 
 ggplot(iris, aes(Sepal.Length, Sepal.Width, colour = Species)) +
@@ -72,6 +76,7 @@ Three branded templates ship with the package, available from RStudio’s
 ## Getting started
 
 ``` r
+
 vignette("spellbind")
 ```
 

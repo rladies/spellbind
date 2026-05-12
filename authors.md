@@ -5,7 +5,7 @@
 - **Athanasia Mo Mowinckel**. Author, maintainer.
   [](https://orcid.org/0000-0002-5756-0223)
 
-- **R-Ladies Global**. Copyright holder.
+- **RLadies+**. Copyright holder.
   [![ROR](https://raw.githubusercontent.com/ror-community/ror-logos/main/ror-icon-rgb.svg)](https://ror.org/https://ror.org/05wpb1k41)
 
 ## Citation

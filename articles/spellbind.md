@@ -14,6 +14,7 @@ set of neutrals and tints.
 is the front door:
 
 ``` r
+
 library(spellbind)
 
 rladies_cols("purple", "blue", "rose")
@@ -24,6 +25,7 @@ rladies_cols("purple", "blue", "rose")
 Call it with no arguments to see everything:
 
 ``` r
+
 rladies_cols()
 #>         purple   purple_light      purple_50 purple_lighter    purple_dark 
 #>      "#881ef9"      "#a152f8"      "#bb86f7"      "#d4b9f5"      "#6b0fd4" 
@@ -46,6 +48,7 @@ and
 handle discrete data; the `_c` variants handle continuous.
 
 ``` r
+
 library(ggplot2)
 
 ggplot(iris, aes(Sepal.Length, Sepal.Width, colour = Species)) +
@@ -65,6 +68,7 @@ For continuous data, pick a single-hue palette like `"purple"` or
 `"blue"`:
 
 ``` r
+
 ggplot(faithfuld, aes(waiting, eruptions, fill = density)) +
   geom_tile() +
   scale_fill_rladies_c("purple") +
@@ -81,19 +85,20 @@ Continuous fill scale using the purple palette.
 
 Nine palettes ship with the package. Each serves a different purpose:
 
-| Palette     | Colours                                | Use case                                     |
-|:------------|:---------------------------------------|:---------------------------------------------|
-| `main`      | purple, blue, rose                     | Default for categorical data with few groups |
-| `full`      | Six brand colours                      | More groups, still categorical               |
-| `purple`    | Six purple tints                       | Sequential or continuous purple data         |
-| `blue`      | Four blue tints                        | Sequential or continuous blue data           |
-| `rose`      | Four rose tints                        | Sequential or continuous rose data           |
-| `neutral`   | Charcoal to lavender                   | Muted backgrounds or secondary data          |
-| `diverging` | Purple through lavender to rose        | Data with a meaningful midpoint              |
-| `light`     | Pastel tints (25% mixed with lavender) | Fills behind text on light backgrounds       |
-| `dark`      | Shaded tints (75% mixed with charcoal) | Categorical data on dark backgrounds         |
+| Palette | Colours | Use case |
+|:---|:---|:---|
+| `main` | purple, blue, rose | Default for categorical data with few groups |
+| `full` | Six brand colours | More groups, still categorical |
+| `purple` | Six purple tints | Sequential or continuous purple data |
+| `blue` | Four blue tints | Sequential or continuous blue data |
+| `rose` | Four rose tints | Sequential or continuous rose data |
+| `neutral` | Charcoal to lavender | Muted backgrounds or secondary data |
+| `diverging` | Purple through lavender to rose | Data with a meaningful midpoint |
+| `light` | Pastel tints (25% mixed with lavender) | Fills behind text on light backgrounds |
+| `dark` | Shaded tints (75% mixed with charcoal) | Categorical data on dark backgrounds |
 
 ``` r
+
 palette_names <- c(
   "main", "full", "purple", "blue",
   "rose", "neutral", "diverging", "light", "dark"
@@ -123,6 +128,7 @@ also use it directly if you need a specific number of interpolated
 colours:
 
 ``` r
+
 rladies_pal("diverging")(7)
 #> [1] "#6B0FD4" "#881EF9" "#BB86F7" "#EDEDF4" "#F6A4C3" "#FF5B92" "#FB80AB"
 ```
@@ -135,6 +141,7 @@ or charcoal (for shades) — the same approach as the RLadies+ SCSS.
 lets you generate any ratio:
 
 ``` r
+
 amounts <- seq(0.25, 1, by = 0.25)
 tints <- vapply(amounts, function(x) rladies_mix("purple", x, "tint"), character(1))
 shades <- vapply(amounts, function(x) rladies_mix("purple", x, "shade"), character(1))
@@ -162,6 +169,7 @@ into slides, documents, and dashboards without white rectangles fighting
 the page colour.
 
 ``` r
+
 ggplot(diamonds, aes(cut, fill = cut)) +
   geom_bar(show.legend = FALSE) +
   scale_fill_rladies("full") +
@@ -177,6 +185,7 @@ The default light theme.
 For dark slides or coloured backgrounds, switch to dark mode:
 
 ``` r
+
 ggplot(mtcars, aes(wt, mpg)) +
   geom_point(colour = rladies_cols("purple_50"), size = 3) +
   theme_rladies(mode = "dark") +
@@ -220,6 +229,7 @@ content.
 A typical chapter meetup workflow looks something like this:
 
 ``` r
+
 ggplot(mtcars, aes(wt, mpg, colour = factor(cyl))) +
   geom_point(size = 3) +
   scale_colour_rladies("main") +
